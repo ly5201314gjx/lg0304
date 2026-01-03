@@ -1,5 +1,7 @@
 {
   "name": "MovieHub Discover",
-  "description": "A cinematic movie discovery application with genre filtering and AI-powered recommendations using Gemini.",
-  "requestFramePermissions": []
+  "description": "A cinematic movie discovery application with aggregated search, playback history, and AI-powered manga reviews.",
+  "requestFramePermissions": [
+    "camera"
+  ]
 }

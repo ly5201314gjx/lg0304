@@ -1,0 +1,17 @@
+
+{
+  "name": "MovieHub Manga",
+  "short_name": "MovieHub",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f1a",
+  "theme_color": "#fbbf24",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3658/3658959.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -3,8 +3,11 @@
 <html lang="zh-CN" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieHub Discover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MovieHub Manga Discover</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
@@ -38,7 +41,7 @@
     <style>
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        body { font-family: 'Noto Sans SC', sans-serif; background-color: #fdfcf0; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #fdfcf0; overscroll-behavior-y: contain; }
         .dark body { background-color: #0b0f1a; }
         .manga-border { border: 3px solid #000; }
         .manga-btn {
@@ -50,8 +53,9 @@
             transform: translate(0px, 0px);
             box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
         }
-        /* Fix for visibility - ensure no "white out" treatments */
         .no-blur { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+        @keyframes slideInUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .animate-up { animation: slideInUp 0.3s ease-out; }
     </style>
 <script type="importmap">
 {
@@ -66,5 +70,12 @@
 </head>
 <body class="text-slate-900 dark:text-white antialiased">
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
 </body>
 </html>
