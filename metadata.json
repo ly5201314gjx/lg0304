@@ -1,0 +1,5 @@
+{
+  "name": "MovieHub Discover",
+  "description": "A cinematic movie discovery application with genre filtering and AI-powered recommendations using Gemini.",
+  "requestFramePermissions": []
+}
